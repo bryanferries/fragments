@@ -51,13 +51,11 @@ class RedFragment : Fragment() {
         choiceBTextView = view.findViewById(R.id.count_b_textview)
 
         choiceAButton.setOnClickListener {
-            countA++
-            choiceATextView.text = countA.toString()
+            addToCountA()
         }
 
         choiceBButton.setOnClickListener {
-            countB++
-            choiceBTextView.text = countB.toString()
+            addToCountB()
         }
 
         return view
@@ -71,11 +69,24 @@ class RedFragment : Fragment() {
     }
 
     private fun addToCountA() {
-
-            RandomNumberViewModel.addCountB()
-
+            randomNumberViewModel.addCountA()
+            updateCount()
         }
 
+    private fun addToCountB() {
+        randomNumberViewModel.addCountB()
+        updateCount()
+    }
+
+        private fun updateCount() {
+            val countAInt = randomNumberViewModel.getCountA()
+            val countAString = countAInt.toString()
+            choiceATextView.text = countAString
+
+            val countBInt = randomNumberViewModel.getCountB()
+            val countBString = countBInt.toString()
+            choiceBTextView.text = countBString
+        }
 
     companion object {
         /**
