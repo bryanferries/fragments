@@ -73,17 +73,7 @@ class RedFragment : Fragment() {
     private fun addToCountA() {
 
             RandomNumberViewModel.addCountB()
-            updateCount()
-        }
 
-        private fun updateCount() {
-            val palestinianCountInt = palestinianCountReturned + surveyViewModel.getPalestinian()
-            val palestinianCountString = palestinianCountInt.toString()
-            palestinianCount.text = palestinianCountString
-            // Add the get functions from the ViewModel to the Extra int from the results activity
-            val israeliCountInt = israeliCountReturned + surveyViewModel.getIsraeli()
-            val israeliCountString = israeliCountInt.toString()
-            israeliCount.text = israeliCountString
         }
 
 
